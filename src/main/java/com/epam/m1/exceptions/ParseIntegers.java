@@ -19,13 +19,59 @@ public class ParseIntegers {
         Iterator<String> words = WORDS.iterator();
         int sum = 0;
         String justWords = "";
+
+        int number = 0;
+
         while (words.hasNext()) {
+            boolean numeric = true;
             String next = words.next();
-            int number = Integer.parseInt(next);
+
+            try {
+                number = Integer.parseInt(next);
+            } catch (NumberFormatException e) {
+                numeric = false;
+            }
+
+            if (numeric) {
+               sum += number;
+            } else {
+                justWords += next + " ";
+            }
+
+
             // todo: complete it
         }
         System.out.println("Sum is " + sum);
-        System.out.println("Just words:" + justWords);
+        System.out.println("Just words: " + justWords);
     }
 }
+
+
+//        Iterator<String> words = WORDS.iterator();
+//        int sum = 0;
+//        StringBuilder justWords = new StringBuilder("");
+//        int number = 0;
+//
+//
+//
+//        while (words.hasNext()) {
+//            String next = words.next();
+//
+//            try {
+//                number = Integer.parseInt(next);
+//
+//            } catch (NumberFormatException e) {
+//                sum += number;
+//                justWords.append(words.next() + " ");
+//                continue;
+//            }
+//
+//
+//            // todo: complete it
+//        }
+//
+//        System.out.println("Sum is " + sum);
+//        System.out.println("Just words:" + justWords);
+
+
 
